@@ -9,7 +9,6 @@ class AddToDo extends Component {
 
     updateInput = input => {
         this.setState({ input });
-        console.log(this.state);
     };
 
     handleAddToDo = () => {
@@ -22,20 +21,11 @@ class AddToDo extends Component {
             <div>
                 <input onChange = { (e) => this.updateInput(e.target.value)} value = { this.state.input }/>
                 <button onClick = {this.handleAddToDo} >Add To Do</button>
-                <ul>{this.props.todoHistory.map(item => (
-                    <li key={item.id}>{item.todo}</li>))}
-                </ul>
             </div>   
         );
     }
 }
 
-
-const mapStateToProps = state => {
-  return {
-    todoHistory: state.todoHistory
-  };
-};
 
 
 const mapDispachToProps = dispatch => {
@@ -44,5 +34,5 @@ const mapDispachToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispachToProps)(AddToDo);
+export default connect(null, mapDispachToProps)(AddToDo);
 
